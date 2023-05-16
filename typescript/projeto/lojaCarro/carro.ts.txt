@@ -1,0 +1,35 @@
+export default class Carro{
+    private modelo: string;
+    private ano: number;
+    private valor: number;
+
+    constructor(modelo: string, ano: number, valor: number){
+        this.modelo = modelo;
+        this.ano = ano;
+        this.valor = valor;
+    }
+
+    public getModelo(){
+        return this.modelo;
+    }
+
+    public setModelo(modeloCarro: string){
+        this.modelo = modeloCarro;
+    }
+
+    public getAno(){
+        return this.ano;
+    }
+
+    public setAno(anoCarro: number){
+        this.ano = anoCarro;
+    }
+
+    public getValor(){
+        return this.valor;
+    }
+
+    public setValor(valorCarro: number){
+        this.valor = valorCarro;
+    }
+}

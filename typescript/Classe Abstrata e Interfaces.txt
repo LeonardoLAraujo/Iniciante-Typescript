@@ -1,0 +1,62 @@
+//Classe ABSTRADA
+abstract class Gato{
+    nome: string;
+    cor: string;
+
+    constructor(n: string, c: string){
+        this.nome = n;
+        this.cor = c;
+    }
+
+    miar(){
+        console.log("Miau!");
+    }
+}
+
+class Tom extends Gato{
+    idade: number;
+
+    constructor(nome: string, cor: string, idade: number){
+        super(nome, cor);
+        this.idade = idade;
+    }
+}
+
+//Não pode instancia uma classe abstrata, ela serve somente para que possamos herdar dela;
+//let gato = new Gato("Tom", "Cinza");
+
+let gato = new Tom("Tom", "Cinza", 2);
+console.log(gato);
+gato.miar();
+
+//INTERFACE
+interface Rato{
+    nome?: string; //A ? quer dizer que ele é opcional, então você não precisa colocar ele no constructor da class
+    idade: number | string; //Podemos falar que a variável pode ter 2 tipo, pode ser tanto number quando string
+    fugir(): void;
+}
+
+class Jerry implements Rato{
+    nome?: string;
+    idade: number | string;
+
+    constructor(nome: string, idade: number | string){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    fugir(){
+        console.log("Corre, lá vem o Tom");
+    }
+}
+
+let rato = new Jerry("Jerry", "2");
+console.log(rato);
+rato.fugir();
+
+let rato2 = new Jerry("",2);
+console.log(rato2);
+/*
+    Na class abstract, você não precisou chamar o método miar
+    Já na interface, você é obrigado a chamar todos os métodos que existiram para sua classe
+*/

@@ -1,0 +1,25 @@
+export default class Cliente{
+    private nome: string;
+    private renda: number
+
+    constructor(nome: string, renda: number{
+        this.nome = nome;
+        this.renda = renda;
+    }
+
+    public getNome(){
+        return this.nome;
+    }
+
+    public setNome(nomeCliente: string){
+        this.nome = nomeCliente;
+    }
+
+    public getRenda(){
+        return this.renda;
+    }
+
+    public setRenda(rendaCliente: number{
+        this.renda = rendaCliente;
+    }
+}

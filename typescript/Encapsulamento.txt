@@ -1,0 +1,80 @@
+class Carro{
+
+    //public | private | protected/*
+    /*
+        Public - Todos podem alterar
+        private - Somente a class que extancia e recebe o método
+        protected - Somente a propria class pode alterar, é acessivel somente para os filhos
+    */
+ 
+    private cor: string;
+    private ano: number;
+    private valor: number;
+
+    constructor(cor: string, ano: number, valor: number){
+        this.cor = cor;
+        this.ano = ano;
+        this.valor = valor;
+    }
+
+    //Getters e Setters
+    public getValor(){
+        return this.valor;
+    }
+
+    public setValor(valorDoCarro: number){
+        this.valor = valorDoCarro;
+    }
+
+    //Método que vai mostrar todas as Informacoes
+    public getLog(){
+        console.log("Segue o Log desta Informação");
+        this.getInfo();
+    }
+
+    private getInfo(){
+        //Podemos chamar o valor assim, por que estamos dentro da class, se fosse fora teria que usar o get, mas também podemos usar o get aqui dentro
+        console.log(`${this.cor}, ${this.ano}, ${this.valor}`);
+    }
+
+    //O protected só pode ser acessivel para a propria class e seus filhos, como o fusca por exemplo
+    protected correr(){
+        console.log("Dirigindo em alta velocidade, estilo velozes e furiosos");
+    }
+}
+
+class Fusca extends Carro{
+    private motor: string;
+
+    constructor(cor: string, ano: number, valor: number, motor: string){
+        super(cor, ano, valor);
+        this.motor = motor;
+    }
+
+    public getMotor(){
+        return this.motor;
+    }
+
+    public setMotor(tipoMotor: string){
+        this.motor = tipoMotor;
+    }
+
+    public pisarNoAcelerador(){
+        //Estou chamando o método da classe mãe
+        super.correr();
+    }
+}
+
+let c1 = new Carro("Azul", 2020, 50000);
+//Usamos o get para pegar o valor dentro da class
+console.log(c1.getValor());
+
+//Usamos o set para alterar um valor dentro da class, assim não altera o valor de dentro da classe diretamente
+c1.setValor(100000);
+console.log(c1.getValor());
+// console.log(`cor: ${c1.cor}, ano: ${c1.ano}, valor: ${c1.getValor}`);
+c1.getLog();
+
+let fusca = new Fusca("Preto", 1980, 20000, "V8");
+console.log(fusca);
+fusca.pisarNoAcelerador();

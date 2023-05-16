@@ -1,0 +1,50 @@
+class Animal{
+    nome: string;
+	idade: number;
+    tipo: string;
+
+    constructor(nome: string, idade: number, tipo: string){
+        this.nome = nome;
+        this.idade = idade;
+        this.tipo = tipo;
+    }
+
+    public comunicar(): void{
+        console.log("Olá, sou o método da classe Mãe");
+    }
+}
+
+class Cachorro extends Animal{
+    raca: string;
+
+    constructor(nome: string, idade: number, tipo: string, raca: string){
+        super(nome, idade, tipo);
+        this.raca = raca;
+    }
+
+    public comunicar(): void{
+        console.log("Olá, sou o método da classe Filho Cachorro");
+    }
+}
+
+class Pessoa extends Animal{
+    cor: string;
+    constructor(nome: string, idade: number, tipo: string, cor: string){
+        super(nome, idade, tipo);
+        this.cor = cor;
+    }
+
+    public comunicar(): void{
+        console.log("Olá, sou o método da classe Filho Pessoa");
+    }
+}
+
+let p1 = new Animal("Diego", 20, "Humano");
+console.log(`Meu nome é ${p1.nome} e minha idade é ${p1.idade} e sou um ${p1.tipo}`);
+p1.comunicar();
+
+let cachorro = new Cachorro("Duke", 2, "Cachorro", "PitBull");
+cachorro.comunicar();
+
+let pessoa1 = new Pessoa("Leonardo", 20, "Humando", "Branca");
+pessoa1.comunicar();
